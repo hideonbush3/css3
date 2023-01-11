@@ -11,15 +11,16 @@
     /* 텍스트 처리 */
     #space p{width: 220px; height: 120px;
       border: 2px solid blue; padding: 20px;
-      margin: 150px 0}
-
+      margin: 110px 0}
     #space p:first-child{white-space: nowrap} /* nowrap:줄바꿈X */
-    #space p:nth-child(2){white-space: pre}
-    #space p:last-child{white-space: pre-wrap}
+    #space p:nth-child(2){white-space: pre} /* 공백을 코드 그대로 출력,
+    코드에 줄바꿈이 없다면 줄바꿈X */
+    #space p:last-child{white-space: pre-wrap} /* 공백을 코드 그대로 출력,
+    코그에 줄바꿈이 없어도 자동 줄바꿈 */
     /* 텍스트 넘침처리 : clip, ellipsis*/
     #overflow p{width: 220px; height: 120px;
       border: 2px solid red; padding: 20px;
-      margin: 150px 0}
+      margin: 30px 0}
     /* 넘친 텍스트 사라지게 */
     #overflow p:first-child{overflow: hidden}
     /* 텍스트 줄바꿈없이 출력 후 넘친 텍스트 줄임말(...)표시 */
@@ -28,14 +29,15 @@
     /* 텍스트 줄바꿈없이 출력 후 넘친 텍스트 사라지게 */
     #overflow p:last-child{overflow: hidden;
       white-space: nowrap; text-overflow: clip;}
-    /* 텍스트에 그림자효과 추가 */
+    /* 텍스트에 그림자효과 추가
+    text-shadow: 수평오프셋 수직오프셋 블러 색상*/
     #shadow p{ font-size: 50px; color: green}
     #shadow p:first-child{text-shadow:  10px 3px orange;
       letter-spacing: 20px}
     #shadow p:nth-child(2){text-shadow: 10px 3px 4px orange;
       letter-spacing: 20px}
     #shadow p:last-child{text-shadow: 10px -3px 4px orange;
-    word-spacing: 40px}
+    letter-spacing: 40px}
   </style>
 </head>
 <body>
