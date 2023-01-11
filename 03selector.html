@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 선택자</title>
+  <style>
+    /* 후손 선택자 : 상위선택자 하위선택자 */
+    div span { color: orange; font-weight: bold}
+
+    /* 자손 선택자 : 상위선택자 > 하위선택자 */
+    /* div 직계 span에 스타일 적용 */
+    div > span { background: indianred; font-style: italic}
+    /* div 직계 span의 후손 span들에 스타일 적용 */
+    div > span span { font-style: initial}
+
+    /* ul 직계 li에 스타일 적용 */
+    ul > li {background: indianred;}
+    /* ul 직계 li의 후손 li들에 스타일 적용 */
+    ul > li li {background: white;}
+
+    /* 그룹 선택자 : 선택자1, 선택자2 */
+    span, li { background: ivory }
+
+    /* 동적의사 선택자 : link, visited, hover, active, focus */
+    a:link { color: green; text-decoration: none} /* 평상시 */
+    a:visited { color: pink; text-decoration: none} /* 한번 방문하고나서 */
+    a:hover { color: orange; text-decoration: underline} /* 커서 올렸을때 */
+    a:active { color: red; text-decoration: none} /* 누르고있을때 */
+
+    input:hover {background: aliceblue}   /* 커서 올렸을때 */
+    input:focus {background: lemonchiffon}  /* 활성화 됐을때 */
+
+    /* 상태의사 선택자 : checked, enabled, disabled */
+    input:checked { box-shadow: 0 0 0 3px hotpink} /* 체크했을때 */
+    input:checked + label /* 형제선택자 */
+    { color: firebrick; background: yellow}
+
+    /* 구조적 의사 선택자 : first-child, last-child,
+      nth-child, nth-of-type */
+     #maker > li { color: mediumpurple; background: white}
+     #maker > li:first-child { color: red}
+     #maker > li:nth-child(3) { color: skyblue}
+     #maker > li:nth-child(4) { color: yellowgreen}
+     #maker > li:last-child { color: orange}
+
+  </style>
+</head>
+<body>
+  <h1>CSS 선택자</h1>
+  <hr>
+  <h2>조합(결합선택자)</h2>
+  <p>스타일을 적용할 대상이
+  하나 이상인 경우에 사용하는 선택자</p>
+
+  <img src="img/combine.png">
+
+  <p>후손descendant 선택자 : 해당 요소 아래에 있는
+  모든 하위 요소들을 대상으로 하는 선택자</p>
+
+  <div>
+    <span>있는 따뜻한 이상 때까지 것이다. 인생을 귀는 이 천지는 뭇
+      원대하고, 그들에게 곳이 아름다우냐?
+      <span>관현악이며, 날카로우나 투명하되 아름답고 풍부하게 우리의
+        이상은 위하여, 위하여서. 동력은 그들의 구하지 교향악이다.
+      </span>
+      <span>간에 사라지지 천고에 크고 작고 그들의 곳으로 소담스러운 이것이다.</span>
+      <span>때에, 생명을 노년에게서 얼음이 황금시대다.</span>
+    </span>
+    <span>피가 지혜는 싶이 뜨고, 부패뿐이다. </span>
+    <span>없으면, 같은 그들은 우는 같은 날카로우나 열락의 고동을 대중을 있다.</span>
+  </div>
+
+  <p>자식child 선택자 : 해당 요소 직계 아래에 있는
+  하위 요소들을 대상으로 하는 선택자</p>
+
+  <ul>
+    <li>한식<ul>
+      <li>비빔밥</li>
+      <li>떡국</li>
+    </ul></li>
+    <li>라</li>
+    <li>돈</li>
+  </ul>
+
+  <p>그룹 선택자 : 여러 선택자를 혼합해서
+  요소들을 지정할때 사용하는 선택자</p>
+<hr>
+  <h2>가상(pseudo:의사) 선택자</h2>
+  <p>특정 태그에 미리 정의된 선택자를 부르는 말</p>
+
+  <p>동적의사 클래스 선택자 : 마우스 이벤트에 의해 스타일을
+    다르게 적용하고 싶을때 사용하는 선택자</p>
+
+  <a href="#">네이버로 이동</a>
+  <a href="#">구글로 이동</a>
+
+  <input type="text">
+  <input type="password">
+
+  <p>상태의사 클래스 선택자 : 폼의 상태에 따라
+  스타일을 다르게 적용하고 싶을때 사용하는 선택자</p>
+
+  <div>
+    <input type="radio"><label>여자</label>
+    <input type="radio"><label>남자</label>
+  </div>
+
+  <p>구조적 의사 클래스 선택자 : html 요소의
+  계층적 구조에서 특정 위치에 있는 요소를
+  선택할때 사용하는 선택자</p>
+
+  <ul id="maker">
+    <li>애뽈</li>
+    <li>샘송</li>
+    <li>샤오미</li>
+    <li>금성</li>
+    <li>모토로라</li>
+  </ul>
+
+</body>
+</html>
