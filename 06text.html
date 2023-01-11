@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 텍스트 관련 속성</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css"> <!-- 기본 margin 제거 -->
+    <link rel="stylesheet" href="css/main.css"> <!-- height 증가 -->
+  <style>
+    /* 텍스트 처리 */
+    #space p{width: 220px; height: 120px;
+      border: 2px solid blue; padding: 20px;
+      margin: 150px 0}
+
+    #space p:first-child{white-space: nowrap} /* nowrap:줄바꿈X */
+    #space p:nth-child(2){white-space: pre}
+    #space p:last-child{white-space: pre-wrap}
+    /* 텍스트 넘침처리 : clip, ellipsis*/
+    #overflow p{width: 220px; height: 120px;
+      border: 2px solid red; padding: 20px;
+      margin: 150px 0}
+    /* 넘친 텍스트 사라지게 */
+    #overflow p:first-child{overflow: hidden}
+    /* 텍스트 줄바꿈없이 출력 후 넘친 텍스트 줄임말(...)표시 */
+    #overflow p:nth-child(2){overflow: hidden;
+    white-space: nowrap; text-overflow: ellipsis}
+    /* 텍스트 줄바꿈없이 출력 후 넘친 텍스트 사라지게 */
+    #overflow p:last-child{overflow: hidden;
+      white-space: nowrap; text-overflow: clip;}
+    /* 텍스트에 그림자효과 추가 */
+    #shadow p{ font-size: 50px; color: green}
+    #shadow p:first-child{text-shadow:  10px 3px orange;
+      letter-spacing: 20px}
+    #shadow p:nth-child(2){text-shadow: 10px 3px 4px orange;
+      letter-spacing: 20px}
+    #shadow p:last-child{text-shadow: 10px -3px 4px orange;
+    word-spacing: 40px}
+  </style>
+</head>
+<body>
+  <h1>CSS 고급 텍스트 관련 속성</h1>
+  <hr>
+  <h2>white-space</h2>
+  <p>텍스트의 공백, 들여쓰기, 줄바꿈에 대한 처리를 설정</p>
+  <div id="space">
+    <p> 길을 따뜻한 피가 천고에 광야에서 그리하였는가? 전인 오아이스도 얼음에 그들은 철환하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?</p>
+    <p> 길을 따뜻한 피가 천고에 광야에서 그리하였는가? 전인 오아이스도 얼음에 그들은 철환하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?</p>
+    <p> 길을 따뜻한 피가 천고에 광야에서 그리하였는가? 전인 오아이스도 얼음에 그들은 철환하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?</p>
+  </div>
+    <hr>
+  <h2>text-overflow</h2>
+  <p>특정 영역을 벗어나 줄바꿈이 되지 않은
+    텍스트에 대한 처리</p>
+  <p>단, white-space와 overflow 속성과 함께 사용해야 함</p>
+    <div id="overflow">
+      <p> 길을 따뜻한 피가 천고에 광야에서 그리하였는가? 전인 오아이스도 얼음에 그들은 철환하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?</p>
+      <p> 길을 따뜻한 피가 천고에 광야에서 그리하였는가? 전인 오아이스도 얼음에 그들은 철환하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?</p>
+      <p> 길을 따뜻한 피가 천고에 광야에서 그리하였는가? 전인 오아이스도 얼음에 그들은 철환하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?따뜻한 것이다.보라, 않는 있는 날카로우나 그들의 장식하는 뜨고, 얼음과 이것이다. 길을 따뜻한 피가 천고에 광야에서 그리하였는가?</p>
+</div>
+<hr>
+  <h2>text-shadow</h2>
+  <p>CSS3에 추가된 기능</p>
+  <p>텍스트에 그림자 효과추가</p>
+  <p>선택자 { 그림자수평오프셋 그림자수직오프셋 블러효과 그림자색상 }</p>
+  <div id="shadow">
+    <p>Infinity War</p>
+    <p>Quantumania</p>
+    <p>End Game</p>
+  </div>
+</hr>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 텍스트 관련 속성</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css"> <!-- 기본 margin 제거 -->
+    <link rel="stylesheet" href="css/main.css"> <!-- height 증가 -->
+
+  <style>
+    /* font-size : 글자크기 기본값 : 16px */
+    #font p:first-child{
+      font-size: 35px; background: yellow;
+    }
+    /* font-family: 글꼴1, 대체글꼴1, ...*/
+    #font p:nth-child(2){
+      font-family: 궁서체, 굴림체; font-size: 20px;
+      background: greenyellow;
+    }
+
+    /* font-weight: bold 또는 normal */
+    #font p:nth-child(3){
+      font-weight: bold; font-size: 20px;
+      font-family: 궁서체, 굴림체;
+      background: aliceblue;
+    }
+    /* font-style: italic 또는 normal */
+    #font p:nth-child(4){
+      font-family: 돋움체; background: cornsilk;
+      font-style: italic; font-size: 20px;
+    }
+    /* 단축표기 : 스타일 대소문자변환 굵기 크기 선간격 글꼴 */
+    #font p:nth-child(5){
+      font: italic bold 25px 궁서체;
+      background: cornsilk;
+    }
+    /* 텍스트 줄간격 : 기본값 : 120%*/
+    #line p{ width: 50%}
+    #line p:first-child{ line-height: 180%;}
+    #line p:nth-child(2){ line-height: 100%;}
+    #line p:last-child{ line-height: 50%;}
+    /* 글자간 간격 조정 */
+    #logo p:first-child{ letter-spacing: 20px}
+    #logo p:nth-child(2){ letter-spacing: 20px}
+    #logo p:last-child{ letter-spacing: -5px}
+    /* 단어간 간격 조정 */
+    #logo2 p:first-child{ word-spacing: 20px}
+    #logo2 p:nth-child(2){ word-spacing: 20px}
+    #logo2 p:last-child{ word-spacing: -10px}
+    /* 텍스트 수평정렬 */
+    #align p:first-child{ text-align: right; border: 3px solid red}
+    #align p:nth-child(2){ text-align: center; border: 3px solid blue}
+    #align p:last-child{ text-align: left; border: 3px solid green}
+    /* 텍스트 꾸미기 : none, underline, overline, line-through */
+    #deco p:first-child { text-decoration: line-through 2px red}
+    #deco p:nth-child(2) { text-decoration: underline 2px red}
+    #deco p:last-child { text-decoration: overline 2px red}
+  </style>
+</head>
+<body>
+  <h1>CSS 텍스트 관련 속성</h1>
+  <h2>개요</h2>
+  <p>폰트 크기,글꼴 지정, 스타일, 텍스트의 정렬들을 다룸</p>
+  <hr>
+  <h2>font-xxx 속성</h2>
+  <p>font-size: 크기</p>
+  <p>font-family: 글꼴</p>
+  <p>font-weight: 진하기</p>
+  <p>font-style: 스타일</p>
+  <p>font-xxx 텍스트 단축 표기 :
+    스타일 대소문자변환 굵기 크기 선간격 종류</p>
+
+<div id="font">
+  <p>가는 그들은 주는 목숨을 우리는 꾸며 인생의 때문이다.</p>
+  <p>꽃이 꽃 예수는 맺어, 같이, 곳이 발휘하기 듣기만 운다.</p>
+  <p>그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+  <p>이상은 없는 인도하겠다는 그러므로 부패뿐이다.</p>
+  <p>목숨이 풀이 영원히 트고, 봄바람이다.</p>
+</div>
+  <hr>
+<h2>line-height</h2>
+<p>텍스트의 줄간격 설정</p>
+
+<div id="line">
+  <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+  <p>이상은 없는 인도하겠다는 그러므로 부패뿐이다.이상은 없는 인도하겠다는 그러므로 부패뿐이다.이상은 없는 인도하겠다는 그러므로 부패뿐이다.이상은 없는 인도하겠다는 그러므로 부패뿐이다.이상은 없는 인도하겠다는 그러므로 부패뿐이다.</p>
+  <p>목숨이 풀이 영원히 트고, 봄바람이다.목숨이 풀이 영원히 트고, 봄바람이다.목숨이 풀이 영원히 트고, 봄바람이다.목숨이 풀이 영원히 트고, 봄바람이다.목숨이 풀이 영원히 트고, 봄바람이다.</p>
+</div>
+  <hr>
+  <h2>letter-spacing</h2>
+  <p>텍스트내 글자 사이 간격 조정</p>
+  <div id="logo">
+    <p>Marvel's Avengers : Infinity War</p>
+    <p>Ant-Man and The Wasp: Quantumania</p>
+    <p>Ant-Man and The Wasp: Quantumania</p>
+  </div>
+  <hr>
+  <h2>word-spacing</h2>
+  <p>텍스트내 글자 사이 간격 조정</p>
+  <div id="logo2">
+    <p>Marvel's Avengers : End Game</p>
+    <p>Ant-Man and The Wasp: Quantumania</p>
+    <p>Ant-Man and The Wasp: Quantumania</p>
+  </div>
+  <hr>
+<h2>text-align</h2>
+<p>텍스트의 수평방향 정렬을 설정(block 요소만 가능 span은 안됨)</p>
+  <div id="align">
+    <p>시간은 금이라구, 친구!</p>
+    <p>시간은 금이라구, 친구!</p>
+    <p>시간은 금이라구, 친구!</p>
+  </div>
+  <hr>
+
+<h2>text-decoration</h2>
+<p>텍스트에 꾸민 효과를 부여/제거함</p>
+
+  <div id="deco">
+    <p>시간은 금이라구, 친구!</p>
+    <p>시간은 금이라구, 친구!</p>
+    <p>시간은 금이라구, 친구!</p>
+  </div>
+</body>
+</html>
