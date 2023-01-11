@@ -1,0 +1,5 @@
+*{padding: 0; margin: 0;}
+
+div:nth-of-type(3){
+color: green !important;
+} /* 속성값 !important; 입력하면 최우선순위로 스타일 적용됨 */
