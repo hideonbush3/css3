@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 박스모델</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 폭을 디바이스의 폭으로 하고 모든 크기를 1로 초기화 -->
+
+    <link rel="stylesheet" href="css/normalize.css"> <!-- 기본 margin 제거 -->
+    <link rel="stylesheet" href="css/main.css"> <!-- height 증가 -->
+
+  <style>
+    #box1{ border: 3px solid red; width: 300px; height: 150px;
+          padding: 10px; margin: 50px 5px}
+
+    #space p{ border: 3px solid red; width: 500px}
+    #space p:first-child{padding-top: 10px; padding-right: 20px; padding-bottom: 30px; padding-left: 40px;}
+    /* padding 축약 : padding: 상 우 하 좌 */
+    #space p:nth-child(2){padding: 10px 20px 30px 40px}
+    /* padding 축약2 : padding: 상 우/좌 하 */
+    #space p:nth-child(3){padding: 10px 30px 30px}
+    /* padding 축약3 : padding: 상/하 우/좌 */
+    #space p:nth-child(4){padding: 20px 30px}
+    /* padding 축약4 : padding: 상 우/좌 하 */
+    #space p:nth-child(5){padding: 25px}
+    /* 박스모델 가운데 배치 */
+    #space p:last-child{padding: 25px; margin: 0 auto;}
+
+    #border p{ width: 500px; margin-left: 5px}
+    /* 선모양: border-방향-style */
+    /* 선두께: border-방향-width */
+    /* 색상: border-방향-color */
+    /* 방향이 생략되면 4방향 동일 적용 */
+    #border p:first-child{
+        border-top-style: dotted;
+        border-right-style: solid;
+        border-bottom-style: dashed;
+        border-left-style: double;
+
+        border-top-width: 2px;
+        border-right-width: thin;
+        border-bottom-width: thick;
+        border-left-width: medium;
+
+        border-top-color: blue;
+        border-right-color: red;
+        border-bottom-color: green;
+        border-left-color: #e0e002;
+    }
+
+    /* border 축약1: 방향 생략 */
+    #border p:nth-child(2){
+        border-style: dashed;
+        border-width: 5px;
+        border-color: cornflowerblue;
+    }
+
+    /* border 축약2: 방향마다 각각 다른 스타일 적용 */
+    #border p:nth-child(3){
+        border-style: dashed dotted solid double;
+        border-width: 5px 10px 5px 10px ;
+        border-color: blue red green #e0e002;
+    }
+
+    /* border 축약3: 선두께 선종류 색상 */
+    #border p:nth-child(4){
+        border: 5px dashed orange;
+    }
+    /* 박스에 입체감 부여: outset, inset */
+    #border p:nth-child(5){
+        border: 15px outset #ca99ee;
+        background: #c3d5f3;
+    }
+    #border p:last-child{
+        border: 15px inset #ca99ee;
+        background: #c3d5f3;
+    }
+
+    #radius p, #shadow p{
+        width: 300px;
+        border: 3px solid black;
+        padding: 25px;
+        margin-left: 10px;
+        text-align: center;
+    }
+    /* 4방향 테두리 둥글게 * /
+    #radius p:first-child{
+        border-radius: 30px
+    }
+    /* 방향 지정해서 테두리 둥글게 */
+    #radius p:nth-child(2){
+        border-top-left-radius: 16px;
+        border-top-right-radius: 32px;
+        border-bottom-right-radius: 48px;
+        border-bottom-left-radius: 64px;
+    }
+    /* 축약: 4방향 다르게 (tl - tr - br - bl) */
+    #radius p:last-child{
+        border-radius: 16px 32px 50px 70px;
+    }
+
+    /* 그림자: 수평오프셋 수직오프셋 블러 색상 */
+    #shadow p:first-child{
+        background: #b0b0f6;
+        box-shadow: 32px 10px 0 #8484ff;
+    }
+    #shadow p:nth-child(2){
+        background: #b0b0f6;
+        box-shadow: 32px 10px 5px #8484ff;
+    }
+    #shadow p:last-child{
+        background: #b0b0f6; margin: 35px 10px;
+        box-shadow: 10px 10px #8484ff,
+                    20px 20px #1e57ef,
+                    30px 30px #0505c5
+    }
+
+
+  </style>
+</head>
+<body>
+  <h1>CSS 박스 모델</h1>
+  <hr>
+  <h2>개요</h2>
+    <p>모든 html요소는 박스로 구성되며 이를 박스모델이라 함</p>
+    <p>박스모델은 content, padding, border, margin으로</p>
+    <img src="img/box.png" width="33%">
+
+    <p>웹 디자인의 핵심은 컨텐츠를 담을 박스모델(블록, 인라인, ...)을 정의하고
+    CSS속성으로 스타일과 위치, 정렬을 수행하는 것</p>
+    <p>박스모델을 통해 텍스트, 이미지, 테이블등의 요소를
+    배치할 수 있고 이것을 통해 웹페이지의 레이아웃을 구성할 수 있음</p>
+
+<div id="box1">
+  <span>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</span>
+</div>
+  <hr>
+<h2>너비, 높이</h2>
+<p>width, height 속성으로 요소의 너비와 높이를 설정</p>
+<p>단, block 요소에 대해서만 설정 가능</p>
+<p>지정한 요소의 크기보다 내용이 많으면
+    요소 밖으로 넘칠수도 있음
+    (overflow 속성을 이용하면 넘친 내용을 감출 수 있음)</p>
+  <hr>
+<h2>여백</h2>
+<p>margin과 padding으로 여백을 설정할 수 있음</p>
+<p>박스 기준으로 12시부터 시계방향으로 4방향 설정 가능</p>
+<p>단축 표기식으로 간단하게 설정 가능</p>
+<div id="space">
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+</div>
+  <hr>
+<h2>테두리</h2>
+<p>내용과 안쪽여백을 둘러싸는 데두리의 스타일 지정</p>
+<p>border 속성의 단축형은 'border: 선두께 선종류 색상'</p>
+  <div id="border">
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+  </div>
+  <hr>
+<h2>border-radius</h2>
+  <p>테두리 둥글게</p>
+  <img src="img/radius.png" width="22%">
+  <div id="radius">
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+      <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+  </div>
+  <hr>
+<h2>box-shadow</h2>
+  <p>박스모델에 그림자 적용</p>
+    <div id="shadow">
+        <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+        <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+        <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    </div>
+</body>
+</html>
