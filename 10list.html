@@ -11,7 +11,6 @@
   <style>
     /* li의 글머리 제거는 list-style-type 속성 이용 */
     #game{list-style-type:none; padding: 0}
-
     /* display 속성으로 블록요소를 인라인 요소로 변환 */
     #game li{display: inline-block}
 
@@ -24,10 +23,8 @@
       padding: 0}
 
     /* 단축표기 */
-    #maker { list-style: none}
-    #maker li { list-style: inside url("img/banana.png")}
-    /**/
-    /**/
+    #maker { list-style: none; padding: 0}
+    #maker li { list-style: inside url("img/banana.png"); }
   </style>
 </head>
 <body>
@@ -51,7 +48,7 @@
 <p>단축표기 사용시
 'list-style: 글머리기호 기호위치 기호이미지' 순으로 작성</p>
 
-<ul id="maker">
+<ul id="maker">브랜드
   <li>나이키</li>
   <li>아디다스</li>
   <li>뉴발</li>

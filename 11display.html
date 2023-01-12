@@ -10,13 +10,14 @@
     <style>
 
   /* span을 block 요소로 변환 */
-  #display p:first-child span{ background: red;
+  #display p:first-child span{
+  display: inline-block; background: red;
   color: white; font-weight: bold;
-  width: 100px; text-align: center; display: inline-block}
+  width: 100px; text-align: center;}
 
-  /* display : 요소와 내용이 차지하는 영역까지 지움 */
+  /* display:none 요소와 내용이 차지하는 영역까지 지움 */
   /* none -> block, inline */
-  /* visibility : 요소만 지우고 내용이 차지하는 영역은 남김 */
+  /* visibility:hidden 내용만 지우고 내용이 차지하는 영역은 남김 */
   /* hidden -> show */
   #visibility p:first-child span { display: none }
   #visibility p:last-child span { visibility: hidden }
@@ -48,8 +49,6 @@
 바꿔야 할때가 존재하는데, 이때 display 속성으로 바꿀 수 있음</p>
 <div id="display">
   <p>시간은 <span>금</span>이라구, 친구!</p>
-  <p>시간은 <span>금</span>이라구, 친구!</p>
-  <p>시간은 <span>금</span>이라구, 친구!</p>
 </div>
   <hr>
 
@@ -63,11 +62,14 @@
   <hr>
 
   <h2>opacity</h2>
-  <p>요소의 투명도를 지정. 값의 범위는 0 ~ 1 </p>
+    <p>요소의 투명도를 지정. 값의 범위는 0 ~ 1 </p>
+    <p>opacity : 0~1</p>
+    <p>요소에 커서 올렸을 시 투명도 조절</p>
+    <p>요소 : hover{opacity : 0~1}</p>
 <div id="opacity">
-  <p></p>
-  <p></p>
-  <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
 </div>
 </body>
 </html>
