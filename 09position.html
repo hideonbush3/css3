@@ -10,53 +10,58 @@
     <link rel="stylesheet" href="css/main.css"> <!-- height 증가 -->
   <style>
     /* static이라 top, left, right, bottom 속성은 x */
-    #box1 { width: 150px; height: 150px;opacity: 0.5;
-      background: #e5e56c; left: 1000px}
-    #box2 { width: 200px; height: 200px; opacity: 0.5;background: #f35353}
-    #box3 { width: 50px; height: 50px; opacity: 0.5;background: green;}
+    #box1 { width: 150px; height: 150px;
+      background: #e5e56c; left: 100px} /* 위치조절 안먹힘 */
+    #box2 { width: 200px; height: 200px; opacity: 0.7;
+        background: #f35353}
+    #box3 { width: 100px; height: 100px; opacity: 0.7;
+        background: green;}
 
     /* absolute 배치 */
-    #box4 {position: absolute;opacity: 0.5;
-        width: 250px; height: 250px;
+    #box4 {position: absolute;opacity: 0.7;
+        width: 150px; height: 150px;
         background: violet;
         top: 50px;
-        left: 50px}
+        left: 50px} /* 뷰포트가 조상이라 뷰포트기준으로 맞춰짐 */
     #box5 {position: absolute;
         width: 250px; height: 250px;
-        background: midnightblue;
-        bottom: 50px;
-        right: 50px; opacity: 0.5}
-    /* box7은 부모요소인 box6내에서 움직이도록
+        background: #7979e1;
+        bottom: 15px;
+        right: 15px;} /* 뷰포트가 조상이라 뷰포트기준으로 맞춰짐 *
+    /* box7가 뷰포트가 아닌 box6를 기준으로 움직이도록
         box6의 position을 relative로 설정 */
-    #box6 {position: relative;opacity: 0.5;
-        width: 250px; height: 250px;
+    #box6 {position: relative;opacity: 0.6;
+        width: 300px; height: 300px;
         background: orange;}
-    #box7 {position: absolute; width: 150px; height: 150px;
-        background: silver; opacity: 0.5;
+    #box7 {position: absolute; width: 200px; height: 200px;
+        background: #507db7;
         top: 50px; left: 50px;}
+
     /* relative 배치 */
-    #box8 {width: 250px; height: 250px; opacity: 0.5;
+    #box8 {width: 250px; height: 250px; opacity: 0.7;
         background: yellow;}
     #box9 {position: relative; width: 250px; height: 250px;
-        background: olive; opacity: 0.5;
+        background: olive; opacity: 0.8;
         top: 50px; left: 50px;}
-    #box10 {width: 200px; height: 200px; opacity: 0.5;
-        background: #97b8ee; margin: 50px}
+    /* box10의 position은 default값인 static이다
+    static도 margin은 먹히는것을 확인 할 수 있음 */
+    #box10 {width: 200px; height: 200px; opacity: 0.7;
+        background: #97b8ee; margin: 10px}
     #box11 {position: relative; width: 200px; height: 200px;
-        background: #c084ec; opacity: 0.5;
-        top: 100px; left: 100px;}
+        background: #c084ec; opacity: 0.7;
+        top: 30px; left: 30px;}
     /* fixed */
-    #cart {width: 100px; height: 200px;
+    #cart {width: 150px; height: 200px;
     background: #9ff18e; position: fixed;
-    top: 50px; right: 50px}
+    top: 30px; right: 20px; opacity: 0.8}
     /* sticky */
     #sticky {
         width: 100px;
         height: 100px;
         background: green;
         position: sticky;
-        top: 0;
-        position: -webkit-sticky;
+        top: 10px; left: 10px;
+        opacity: 0.7;
     }
     /* z-index */
     #box12{ width: 300px; height: 300px;
@@ -64,15 +69,15 @@
     #box13, #box14, #box15 {width: 200px; height: 200px;
         position: absolute;}
     #box13 {background: red; top: 50px; left: 50px;
-    z-index: 999}
+    z-index: 3}
     #box14 {background: green; top: 100px; left: 100px;
-    z-index: 900}
+    z-index: 2}
     #box15 {background: blue; top: 150px; left: 150px;
-    z-index: 888}
+    z-index: 1}
 
     /* overflow*/
     #overflow p{width: 150px; height: 150px;
-    border: 3px dashed red}
+    border: 2px solid black}
     #overflow p:first-child{ overflow: hidden}
     #overflow p:nth-child(2){overflow: scroll}
     #overflow p:last-child{overflow: auto}
@@ -130,10 +135,11 @@ top/left/right/bottom만큼 요소를 이동시켜 배치</p>
 top/left/right/bottom만큼 요소를 이동시켜 배치</p>
 <p>스크롤해도 뷰포트를 기준점으로 붙어있다 </p>
 <div id="cart">
-    <span>position:fixed
-        viewport를
+    <span>position:fixed이며
+        viewport
         기준으로
-        위치 조절</span>
+        위치 조절할 수 있고
+    화면에 고정된다</span>
 </div>
 <hr>
 
@@ -143,19 +149,18 @@ top/left/right/bottom만큼 요소를 이동시켜 배치</p>
 <p>평소에는 static 방식으로 요소를 처리하다가
 해당 요소가 뷰포트를 지나칠 때 fixed처럼
 화면에 고정시킴</p>
-<div id="fixed">fixed</div>
 <div id="sticky">sticky</div>
-<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 
 </div>
-
+<hr>
 <h2>z-index</h2>
-<p>요소를 배치하다보면 설정된 위치나 방식에 따라</p>
-<p>즉, 먼저 만들어진 요소는 나중에 만들어진 요소보다
-밑(뒤)에 배치됨</p>
-<p>요소가 쌓이는 순서를 지정하고 싶다면
+<p>먼저 만들어진 요소는 나중에 만들어진 요소
+밑(뒤)에 배치됨(겹쳐서 보면 깔린다)</p>
+<p>요소가 쌓이는 순서를 강제하기 위해서
 z-index를 사용함</p>
 <p>z-index값이 클수록 위에 위치함</p>
+<p>z-index값은 음수도 지정 가능</p>
 <div id="box12">
     <div id="box13">1</div>
     <div id="box14">2</div>
