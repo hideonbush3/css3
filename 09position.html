@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS position 관련</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 폭을 디바이스의 폭으로 하고 모든 크기를 1로 초기화 -->
+
+    <link rel="stylesheet" href="css/normalize.css"> <!-- 기본 margin 제거 -->
+    <link rel="stylesheet" href="css/main.css"> <!-- height 증가 -->
+  <style>
+    /* static이라 top, left, right, bottom 속성은 x */
+    #box1 { width: 150px; height: 150px;opacity: 0.5;
+      background: #e5e56c; left: 1000px}
+    #box2 { width: 200px; height: 200px; opacity: 0.5;background: #f35353}
+    #box3 { width: 50px; height: 50px; opacity: 0.5;background: green;}
+
+    /* absolute 배치 */
+    #box4 {position: absolute;opacity: 0.5;
+        width: 250px; height: 250px;
+        background: violet;
+        top: 50px;
+        left: 50px}
+    #box5 {position: absolute;
+        width: 250px; height: 250px;
+        background: midnightblue;
+        bottom: 50px;
+        right: 50px; opacity: 0.5}
+    /* box7은 부모요소인 box6내에서 움직이도록
+        box6의 position을 relative로 설정 */
+    #box6 {position: relative;opacity: 0.5;
+        width: 250px; height: 250px;
+        background: orange;}
+    #box7 {position: absolute; width: 150px; height: 150px;
+        background: silver; opacity: 0.5;
+        top: 50px; left: 50px;}
+    /* relative 배치 */
+    #box8 {width: 250px; height: 250px; opacity: 0.5;
+        background: yellow;}
+    #box9 {position: relative; width: 250px; height: 250px;
+        background: olive; opacity: 0.5;
+        top: 50px; left: 50px;}
+    #box10 {width: 200px; height: 200px; opacity: 0.5;
+        background: #97b8ee; margin: 50px}
+    #box11 {position: relative; width: 200px; height: 200px;
+        background: #c084ec; opacity: 0.5;
+        top: 100px; left: 100px;}
+    /* fixed */
+    #cart {width: 100px; height: 200px;
+    background: #9ff18e; position: fixed;
+    top: 50px; right: 50px}
+    /* sticky */
+    #sticky {
+        width: 100px;
+        height: 100px;
+        background: green;
+        position: sticky;
+        top: 0;
+        position: -webkit-sticky;
+    }
+    /* z-index */
+    #box12{ width: 300px; height: 300px;
+    border: 3px dashed black; position: relative}
+    #box13, #box14, #box15 {width: 200px; height: 200px;
+        position: absolute;}
+    #box13 {background: red; top: 50px; left: 50px;
+    z-index: 999}
+    #box14 {background: green; top: 100px; left: 100px;
+    z-index: 900}
+    #box15 {background: blue; top: 150px; left: 150px;
+    z-index: 888}
+
+    /* overflow*/
+    #overflow p{width: 150px; height: 150px;
+    border: 3px dashed red}
+    #overflow p:first-child{ overflow: hidden}
+    #overflow p:nth-child(2){overflow: scroll}
+    #overflow p:last-child{overflow: auto}
+  </style>
+</head>
+<body>
+<h1>CSS position 관련</h1>
+<hr>
+<h2>개요</h2>
+  <p>지금까지는 margin/padding 또는
+  인라인/블록 요소의 특성에 의해
+  부분적으로 요소의 위치를 지정할 수 있었음</p>
+  <p>반면, position이라는 속성을 이용하면
+  html 요소들의 위치를 좌표등으로 결정할 수 있음</p>
+  <p>즉, top/left/right/bottom 등의 속성으로
+  요소의 위치를 정할 수 있음</p>
+<hr>
+<h2>static position(정적 위치 설정)</h2>
+<p>기본적인 요소 배치순서에 따라 위->아래, 좌->우로
+배치되며, 부모-자식 관계의 요소는 부모요소에 따라 배치됨
+    기준 없음 (배치 불가능 / 기본값)</p>
+
+<div id="box1">box#1</div>
+<div id="box2">
+  <div id="box3">box#3</div>
+</div>
+<hr>
+<h2>absolute position(절대 위치 설정)</h2>
+<p>부모(조상) 요소를 기준으로
+top/left/right/bottom만큼 요소를 이동시켜 배치</p>
+<p>단, 부모요소를 기준으로 하위요소를 배치하려면
+부모요소의 position은 relative여야함</p>
+
+<div id="box4">box#4</div>
+<div id="box5">box#5</div>
+<div id="box6">box6
+    <div id="box7">box#7</div>
+</div>
+<hr>
+<h2>relative position(상대 위치 설정)</h2>
+<p>요소 자기 자신을 기준으로
+    top/left/right/bottom만큼 요소를 이동시켜 배치</p>
+<div id="box8">box#8</div>
+<div id="box9">box#9</div>
+<div id="box10">
+    <div id="box11">box#11</div>
+</div>
+<hr>
+<h2>fixed</h2>
+<p>뷰포트(웹페이지 가상영역)을 기준으로
+top/left/right/bottom만큼 요소를 이동시켜 배치</p>
+<p>따라서, 브라우저</p>
+<div id="cart">
+    <span>position:fixed
+        viewport를
+        기준으로
+        위치 조절</span>
+</div>
+<hr>
+<h2>sticky position</h2>
+<p>relative position과 fixed position을
+적절히 조합해서 만든 position</p>
+<p>평소에는 static 방식으로 요소를 처리하다가
+해당 요소가 뷰포트를 지나칠 때 fixed처럼
+화면에 고정시킴</p>
+<div id="fixed">fixed</div>
+<div id="sticky">sticky</div>
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+
+</div>
+<h2>z-index</h2>
+<p>요소를 배치하다보면 설정된 위치나 방식에 따라</p>
+<p>즉, 먼저 만들어진 요소는 나중에 만들어진 요소보다
+밑(뒤)에 배치됨</p>
+<p>요소가 쌓이는 순서를 지정하고 싶다면
+z-index를 사용함</p>
+<p>z-index값이 클수록 위에 위치함</p>
+
+<div id="box12">
+    <div id="box13">1</div>
+    <div id="box14">2</div>
+    <div id="box15">3</div>
+</div>
+<hr>
+<h2>overflow</h2>
+<p>자식요소가 부모요소를 벗어낫을때의 처리방법</p>
+<div id="overflow">
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+    <p>그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.그들은 착목한는 꾸며 영락과 부패뿐이다.</p>
+</div>
+
+</body>
+</html>
