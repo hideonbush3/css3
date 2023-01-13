@@ -1,0 +1,80 @@
+*{margin: 0px; padding: 0px;}   /* 기본적으로 들어있는 margin과 padding 제거 */
+a{text-decoration: none;}   /* 링크의 밑줄 제거 */
+
+header{
+    margin: auto;
+    height: 130px;
+    width: 1200px;
+    position: relative;
+    background-color: #e5e5c1;
+}
+#logo{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+nav {
+    width: 80%;
+    margin: auto;
+    top: 80%;
+    position: relative;
+
+}
+nav li{
+display: inline;
+margin-left: 10%;
+}
+
+main {
+width: 1200px;
+outline: 1px solid #e5e5c1;
+margin: auto;
+position: relative;
+height: 700px;
+}
+
+footer {
+margin: auto;
+width: 1200px;
+height: 100px;
+position: relative;
+background-color: #e5e5c1;
+}
+#copy {
+margin: auto;
+}
+#copy p{
+text-align: center;
+}
+
+#join {
+
+position: absolute;
+    left: 35%;
+    top: 25%;
+}
+
+#login {
+position: absolute;
+left: 35%;
+top: 25%;
+}
+
+#list {
+position: absolute;
+left: 25%;
+top: 18%;
+}
+
+#view {
+position: absolute;
+left: 35%;
+top: 18%;
+}
+
+#myinfo {
+position: absolute;
+left: 35%;
+top: 28%;
+}

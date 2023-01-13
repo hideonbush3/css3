@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>write</title>
+</head>
+<body>
+<header><h1>JSP 프로젝트 v1</h1></header>
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="join.html">회원가입</a></li>
+    <li><a href="login.html">로그인</a></li>
+    <li><a href="list.html">게시판</a></li>
+    <li><a href="myinfo.html">회원정보</a></li>
+  </ul>
+  <hr>
+</nav>
+<main>
+  <h2>새글쓰기</h2>
+  <form name="write">
+    <table>
+      <tr>
+        <th>
+          <lable for="title">제목</lable>
+        </th>
+        <td>
+          <input type="text"
+                   name="title" id="title">
+        </td>
+      </tr>
+      <tr><th><lable for="uid">작성자</lable></th><td>
+        <input type="text" name="uid" id="uid" value="siestageek" readonly></td></tr>
+      <tr>
+        <th>
+          <lable for="contents">본문</lable>
+        </th>
+        <td>
+          <textarea name="contents" id="contents" rows="7" cols="55">
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+        <button type="button">입력완료</button>
+        <button type="reset">다시입력</button>
+      </td>
+      </tr>
+    </table>
+  </form>
+</main>
+<footer>
+  <hr>
+  <div>copyright &copy; 2023. hideonbush3. All Rights Reserved.</div>
+</footer>
+</body>
+</html>
