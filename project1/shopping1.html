@@ -47,9 +47,14 @@
             padding: 10px 0;
         }
 
-        nav { height: 40px;
-        background: silver; position: relative}
+        /* 메인 */
+        main{height: 650px;
+            border-style: none none solid none;
+        }
 
+        /* 상단 SEARCH BAR */
+        nav { height: 40px;
+            background: silver; position: relative}
         #ser{
             width: 600px;
             height: 30px;
@@ -57,75 +62,79 @@
             left: 15px;
             position: absolute;
         }
-
         nav input{ display: inline-block;
-        width: 250px;}
+            width: 250px;}
         nav select{display: inline-block;
-        width: 150px}
-
-        main{height: 650px
+            width: 150px}
+        nav button{background: #626060; color: white;
+            display: inline-block; width: 100px;
+            border-radius: 20px;
         }
 
+        /* 첫번째 섹션 */
         #sec1{
         position: relative; height: 330px}
 
-        main aside{border: 3px solid black;
-        width: 200px; height: 300px; position: absolute;
-        left: 5px; top: 10px}
+        /* All categories */
+        section:first-child aside{ border: 1px solid black;
+        width: 22%;}
+        section:first-child aside ul{ list-style: none;
+            border: 2px solid black; padding: 10px; margin: 0;}
+        section:first-child aside li{
+            border-bottom: 1px solid black;
+        padding: 10px 8px;}
+        section:first-child aside li:last-child{
+            border:none
+        }
 
-        #category{ margin-top: 40px}
-        #category ul li{list-style: none}
-
+        /* promotional */
         #promotional {border: 3px solid black;
-        width: 700px; height: 300px; position: absolute;
-        top: 10px; left: 220px}
-
-        #sec1 p{
-        width: 300px; margin: auto; margin-top: 150px}
-
-        #picno{
-        width: 140px; position: absolute;
-        right: 10px; bottom: 0px}
+        width: 74%; height: 98%; position: absolute;
+            right: 0; top: 0;}
+        #sec1 p{position: absolute;
+        top: 40%; right:29%}
+        #picno{position: absolute;
+            margin: 0; padding: 0;
+        right: 5%; bottom: 5%}
         #picno li{ list-style: none;
-        display: inline-block; width: 23px; height: 23px;
-        text-align: center; background: silver}
+        display: inline-block; padding: 5px 10px;
+            margin: 5px; background: silver;  }
 
+        /* 두번째 섹션 */
         #sec2 ul{
             margin-top: 100px;
+            list-style: none;
         }
         #sec2 li{
-            display: inline-block; list-style: none;
-            margin-left: 36px;
+            display: inline-block;
+            margin-left: 4.4%;
         }
-
-        footer{ height: 220px; position: relative}
-
-        footer ul { display: inline-block;
-        margin-top: 0px}
-
-        footer div ul:nth-child(2){position: absolute;
-        left: 200px}
-        footer div ul:last-child {position: absolute;
-        left: 400px}
-
-        footer li { list-style: none}
-
-        #copy{width: 400px;
-        position: absolute;
-        bottom: -40px; left: 350px}
-
-        nav button{background: #626060; color: white;
-            display: inline-block; width: 100px;
-            border-radius: 10px;
-        }
-
         h2{
             margin-left: 15px;
         }
         #sec2 ul li img{
-            display: block;
-            width: 100px; height: 100px
+
+            width: 100px; height: 100px;
+            background: #e0dada;
+            border-radius: 15px;
         }
+        #sec2 a{
+            display: block;
+            text-align: center;
+        }
+
+        /* 푸터 */
+        footer{ height: 220px; position: relative}
+        footer ul { display: inline-block;
+        margin-top: 0px}
+        footer div ul:nth-child(2){position: absolute;
+        left: 200px}
+        footer div ul:last-child {position: absolute;
+        left: 400px}
+        footer li { list-style: none}
+        footer div:last-child{width: 400px;
+        position: absolute;
+        bottom: -40px; left: 350px}
     </style>
 </head>
 <body>
@@ -149,7 +158,7 @@
             <option>Category</option>
             <option>Category</option>
         </select>
-        <button type="button">search</button>
+        <button type="button">SEARCH</button>
         </div>
     </nav>
     <main>
@@ -182,7 +191,7 @@
             <h2>Today's Specials</h2>
             <ul>
                 <li>
-                    <img src="#">
+                    <img src="#" onerror="this.style.display='none'"/>
                     <a href="#">Product1</a>
                 </li>
                 <li>
