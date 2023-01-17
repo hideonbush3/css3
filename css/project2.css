@@ -18,7 +18,10 @@ hr { background: black; height: 2px; }
 /* 회원가입, 로그인 */
 form { width: 320px; margin: 0 auto; vertical-align: middle }
 div { padding: 5px }
+/* label은 인라인요소라 inline-block 넣어줘야 폭 조절 가능함 */
 form label { display: inline-block; width: 110px;
     text-align: right; font-weight: bold }
 form input { padding: 5px }
 button { padding: 5px 7px }
+
+.drgup{ vertical-align: top }
