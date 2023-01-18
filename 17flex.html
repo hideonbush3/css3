@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS flexbox layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 수직, 수평으로 텍스트 정렬하기 */
+    .centerme { height: 200px; background: indigo;
+    color: #bbbbbb; display: flex;
+    align-items: center; justify-content: start;}
+
+    /* header 메뉴 배치하기 */
+    a:link{color: white; text-decoration: none}
+    a:hover{color: #ec0505; text-decoration: underline}
+    a:visited{color: white}
+    a:active{color: #25e808}
+
+    .menus{ height: 150px;
+      background: indigo; color: #ebebeb;
+    padding: 0 10px; font-size: 32px;
+    min-height: 24px; display: flex; align-items: center;
+    /*flex-direction: row-reverse*/
+    /*flex-direction: column;*/}
+
+    .item{margin-right: 16px;}
+    /* 기존 항목과 마지막 항목간의 배치방식에 따라
+    마진을 자동으로 설정
+     */
+    .last-item{margin-left: auto;
+    /*margin-right: auto;*/}
+
+
+    /* flex item 배치하기 */
+    .container1{height: 200px; width: 100%; background: indigo;
+    color: white; display: flex;
+        justify-content: space-evenly; align-items: center;
+    flex-direction: row; }
+    .item2{background: #8bb0ec; height: 100px; width: 200px;
+    font-size: 20px; }
+
+
+    /* 항목 순서 지정하기 */
+    .container2{background: indigo;
+    display: flex; flex-direction: column;}
+
+    .item3{ padding: 16px; min-height: 100px;
+    display: flex; align-items: center;}
+
+    /* container2에 포함되어있는 요소들의 순서가 잘못되어 있어서 */
+    /* order로 순서를 강제로 지정해주고 전체를 감싸는 container2에 */
+    /* display: flex를 입력해주면 지정한 순서가 적용된다 */
+    header {background-color: #99e9f1; order: 1;}
+    main {background-color: #fffad5; order:2;}
+    aside {background-color: #ead28a; order: 3;}
+    aside.aside-two {background-color: #db9e36; order: 4;}
+    footer {background-color: #f58e7a; order: 5;}
+
+
+    /* 항목들 크기 자유자재로 다루기 */
+    .container3{height: 100px; width: 100%;
+        background: indigo; display: flex;
+    align-items: center;}
+
+    /* width: 고정크기, 내용이 많으면 자동 줄바꿈*/
+    /* flex-basis: 가변크기, 내용이 많으면 자동 연장 */
+    /* flex-grow: 기본적으로는 항목의 내용을 제외한 나머지 공간(여백)
+    을 기준으로 항목의 너비를 비율로 표시 */
+    /* flex-shrink: 항목의 내용을 기준으로 항목의 너비를 비율로 표시 */
+    /* 단, flex-grow, flex-shrink 속성은
+    flex-basis 속성에 영향을 받기도 함 */
+    .item4{background: #8bb0ec; height: 80px;
+        /*width: 200px;*/ margin: 5px;
+        color: white; /*flex-basis: 200px;*/
+    /* flex-grow: 1; */ /*flex-shrink: 1;*/
+    /* basis, grow, shrink 등은 축약형으로도 작성 가능
+    - 순서는 grow, shrink, basis */
+    flex: 1 0 200px;}
+
+
+    /* basis, grow, shrink 이용해서
+       holy grail layout 적용하기 */
+    /* flex-wrap: wrap
+    항목이 뷰포트를 벗어날때 overflow 처리 */
+    /* direction과 wrap을 축약으로 사용가능
+     ex)flex-flow: row wrap */
+    .container4{background: indigo;
+        display: flex; /*flex-direction: row;
+    flex-wrap: wrap;*/
+        /* flex box에 flex-wrap: wrap을 부여하면 */
+        /* shrink는 적용안됨 */
+    flex-flow: row wrap;}
+    .hdr{ flex: 0 0 100%; order: 1;}
+    .ftr{ flex: 0 0 100%; order: 5;}
+    .asd1{ flex: 0 0 150px; order: 2;}
+    .main{ flex: 1 0 auto; order: 3;}
+    .asd2{ flex: 0 0 150px; order: 4;}
+</style>
+</head>
+<body>
+<h1>CSS flexbox layout</h1>
+<hr>
+<h2>개요</h2>
+<p>뷰포트나 요소의 크기가 불명확하거나 동적으로 변할때에도
+효율적으로 요소를 배치, 정렬, 분산할 수 있는 방법을 제공하는
+CSS의 새로운 레이아웃 방식</p>
+<p>flexbox layout의 장점은 '복잡한 계산없이 요소의 크기와 순서를
+유연하게 배치할 수 있다라는 것임</p>
+<p>정렬, 방향, 순서, 크기 등을 유연하게 조절할 수 있기 때문에
+별도의 분기처리를 줄일 수 있고, CSS만으로 다양항 레이아웃 구현 가능</p>
+<p>flexbox froggy - <a href="http://www.flexboxfroggy.com">개구리랑 놀기</a></p>
+<img src="img/flexbox01.png">
+<hr>
+
+<h2>수직(align-flex), 수평(justify-content)으로 텍스트 정렬하기</h2>
+<p>display: flex - flex 컨테이너에게 flex 박스 레이아웃 적용시작</p>
+<p><b>align-items</b>: cross axix를 기준으로 아이템들을 수직 정렬함</p>
+<p>ex) align-items: start, align-items: center, align-items: end</p>
+<p><b>justify-content</b>: main axis를 기준으로 아이템들을 수평 정렬함</p>
+<p>ex) justify-content: start, justify-content: center, justify-content: end</p>
+<div class="centerme">안녕, 플렉스박스 레이아웃</div>
+<hr>
+
+<h2>header 메뉴 배치하기</h2>
+<p>flex-direction: 메인축을 기준으로 아이템을 어떻게
+배치할 것인지 결정 - row(가로), column(세로),
+  reverse-row(가로 꺼꾸리), reverse-column(세로 꺼꾸리)</p>
+<header class="menus">
+  <a href="#" class="item">Home</a>
+  <a href="#" class="item">About Us</a>
+  <a href="#" class="item">Products</a>
+  <a href="#" class="item">Policy</a>
+  <a href="#" class="last-item">Contact Us</a>
+</header>
+<hr>
+
+<h2>flex item 배치하기</h2>
+<p>flex 컨테이너 내에 포함된 항목들을 일정 간격으로
+    배치하려면 justify-content 속성을 사용
+</p>
+<p>space-between: 항목들 사이에 일정한 간격으로 배치</p>
+<p>space-around: 항목들 주위에 일정한 간격으로 배치</p>
+<p>space-evenly: 항목들 양끝에 일정한 간격으로 배치</p>
+<img src="img/space-evenly.png">
+
+<div class="container1">
+    <div class="item2">Item One</div>
+    <div class="item2">Item Two</div>
+    <div class="item2">Item Three</div>
+</div>
+
+<hr>
+<h2>항목 순서 지정하기</h2>
+<p>각 항목들의 시각적 나열 순서를
+    결정할때 order라는 속성 이용</p>
+<p>숫자가 낮을수록 앞(먼저)에 배치됨</p>
+
+<div class="container2">
+    <!-- holy grail layout의 순서를 뒤죽박죽 해놓은 모습-->
+    <aside class="item3">Side one</aside>
+    <aside class="item3 aside-two">Side Two</aside>
+    <main class="item3">Content</main>
+    <footer class="item3">Footer</footer>
+    <header class="item3">Header</header>
+</div>
+<hr>
+
+<h2>항목들 크기 자유자재로 다루기</h2>
+<div class="container3">
+    <div class="item4">Item One</div>
+    <div class="item4">Item TwoTwoTwoTwoTwoTwoTwoTwoTwoTwoTwoTwoTwoTwo</div>
+    <div class="item4">Item Three</div>
+</div>
+<hr>
+
+<h2>grow, basis 적용하기</h2>
+<div class="container4">
+        <header class="item3 hdr">Header</header>
+        <aside class="item3 asd1">Side one</aside>
+        <main class="item3 main">Content</main>
+        <aside class="item3 asd2">Side Two</aside>
+        <footer class="item3 ftr">Footer</footer>
+</div>
+
+<!--공백용-->
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+</body>
+</html>
